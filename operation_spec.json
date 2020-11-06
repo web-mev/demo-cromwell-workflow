@@ -1,0 +1,32 @@
+{
+    "name": "Demo app", 
+    "description": "A demonstration app that performs a trivial operation using the Cromwell backend", 
+    "inputs": {
+        "DemoWorkflow.num_rows": {
+            "description": "The number of rows in the matrix we will create.", 
+            "name": "Row number:", 
+            "required": true, 
+            "spec": {
+                "attribute_type": "PositiveInteger" 
+            }
+        },
+        "DemoWorkflow.num_cols": {
+            "description": "The number of columns in the matrix we will create.", 
+            "name": "Column number:", 
+            "required": true, 
+            "spec": {
+                "attribute_type": "PositiveInteger" 
+            }
+        }        
+    }, 
+    "outputs": {
+        "DemoWorkflow.f1": {
+            "spec": {
+                "attribute_type": "DataResource", 
+                "resource_type": "EXP_MTX",
+                "many": false
+            }
+        }
+    }, 
+    "mode": "cromwell"
+}
