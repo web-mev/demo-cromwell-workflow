@@ -1,5 +1,6 @@
 import argparse
 import numpy as np
+import pandas as pd
 
 def parse_args():
     parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -19,4 +20,7 @@ if __name__ == '__main__':
     for f in args.input_files:
         mtx_list.append(np.loadtxt(f))
     final_mtx = np.vstack(mtx_list)
-    np.savetxt(args.output_file, final_mtx, delimiter='\t')
+    index = ['g%d' % x for x in range(final_mtx.shape[0])]
+    cols = ['C%d' % x for x in range(final_mtx.shape[1])]
+    final_df = pd.DataFrame(final_mtx, index=index, columns=cols)
+    final_df.to_csv(args.output_file, sep='\t')
