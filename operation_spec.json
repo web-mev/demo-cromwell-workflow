@@ -28,5 +28,6 @@
             }
         }
     }, 
-    "mode": "cromwell"
+    "mode": "cromwell",
+    "workspace_operation": true
 }
