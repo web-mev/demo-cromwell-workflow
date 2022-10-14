@@ -1,4 +1,0 @@
-{
-  "DemoWorkflow.num_rows": "api.converters.basic_attributes.IntegerConverter", 
-  "DemoWorkflow.num_cols": "api.converters.basic_attributes.IntegerConverter"
-}

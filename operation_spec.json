@@ -2,25 +2,33 @@
     "name": "Demo app", 
     "description": "A demonstration app that performs a trivial operation using the Cromwell backend", 
     "inputs": {
-        "DemoWorkflow.num_rows": {
-            "description": "The number of rows in the matrix we will create.", 
-            "name": "Row number:", 
+        "DemoWorkflow.f1": {
+            "description": "A file", 
+            "name": "File 1:", 
             "required": true, 
+            "converter": "api.converters.data_resource.CromwellSingleDataResourceConverter",
             "spec": {
-                "attribute_type": "PositiveInteger" 
+                "attribute_type": "DataResource", 
+                "resource_type": "EXP_MTX",
+                "many": false
             }
         },
-        "DemoWorkflow.num_cols": {
-            "description": "The number of columns in the matrix we will create.", 
-            "name": "Column number:", 
+        "DemoWorkflow.f2": {
+            "description": "Another file", 
+            "name": "File 2:", 
             "required": true, 
+            "converter": "api.converters.data_resource.CromwellSingleDataResourceConverter",
             "spec": {
-                "attribute_type": "PositiveInteger" 
+                "attribute_type": "DataResource", 
+                "resource_type": "EXP_MTX",
+                "many": false
             }
         }        
     }, 
     "outputs": {
-        "DemoWorkflow.f1": {
+        "DemoWorkflow.output": {
+            "required": true,
+            "converter": "api.converters.data_resource.CromwellSingleDataResourceConverter",
             "spec": {
                 "attribute_type": "DataResource", 
                 "resource_type": "EXP_MTX",
